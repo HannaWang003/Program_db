@@ -6,13 +6,23 @@ $pwd=$_POST['pwd'];
 $dns="mysql:host=localhost;charset=utf8;dbname=member";
 $pdo=new PDO($dns,'root','');
 
-$sql="select count(*) from users where `acc`='$acc' && `pwd`='$pwd'";
+$sql="select count(*),`id`,`acc`,`pwd`,`name`,`tel` from users where `acc`='$acc' && `pwd`='$pwd'";
 $user=$pdo->query($sql)->fetch();
-$user=$pdo->query($sql)->fetchcolumn();
-
+$userNumber=$pdo->query($sql)->fetchcolumn();
+// fetchcolumn() 傳回資料列中的第一個資料行
+    // 檢查用
+    // echo "<pre>";
+    // echo print_r($user);
+    // echo "</pre>";
+    // exit();
+    // 檢查用end
 // if($user['acc']==$acc && $user['pwd']==$pwd){
-    if($user==1){
-    $_SESSION['user']=$acc;
+    if($userNumber==1){
+    $_SESSION['id']=$user['id'];
+    $_SESSION['user']=$user['acc'];
+    $_SESSION['pwd']=$user['pwd'];
+    $_SESSION['name']=$user['name'];
+    $_SESSION['tel']=$user['tel'];
     header("location:index.php");
 }
 else{
