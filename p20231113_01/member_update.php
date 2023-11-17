@@ -12,7 +12,12 @@ if(isset($_POST['tel'])){
     $_SESSION['tel']=$_POST['tel'];
 }
 $sql="update `users` set `pwd`='{$_SESSION['pwd']}',`name`='{$_SESSION['name']}',`tel`='{$_SESSION['tel']}' where `id` = '{$_SESSION['id']}'";
-$pdo->exec($sql);
+if($pdo->exec($sql)>0){
+    $_SESSION['msg']="更新成功";
+}
+else{
+    $_SESSION['msg']="資料無異動";
+};
 // exit();
-header("location:./index.php");
+header("location:./member.php");
 ?>
