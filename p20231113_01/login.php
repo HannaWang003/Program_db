@@ -1,10 +1,10 @@
 <?php
 session_start();
+include_once("./inc/pdo.php");
+
 $acc=$_POST['acc'];
 $pwd=$_POST['pwd'];
 
-$dns="mysql:host=localhost;charset=utf8;dbname=member";
-$pdo=new PDO($dns,'root','');
 
 $sql="select count(*),`id`,`acc`,`pwd`,`name`,`tel` from users where `acc`='$acc' && `pwd`='$pwd'";
 $user=$pdo->query($sql)->fetch();

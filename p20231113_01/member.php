@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,9 +23,12 @@ if(isset($_SESSION['user'])){
         <div class="nav-item col-4"></div>
         <div class="nav-item col-4">
             <ul class="d-flex justify-content-evenly">
-                <li>1<li>
-                <li>2<li>
-                <li>3<li>
+                <li>1
+                <li>
+                <li>2
+                <li>
+                <li>3
+                <li>
             </ul>
         </div>
     </header>
@@ -34,11 +39,13 @@ if(isset($_SESSION['user'])){
                 <form action="member_update.php" method="post">
                     <div class="container row w-50 m-auto input-group my-2">
                         <label class="col-3 input-group-text" for="acc">帳號</label>
-                        <input class="col-3 form-control" type="text" name="acc" id="" value="<?=$_SESSION['user']?>" disabled readonly>
+                        <input class="col-3 form-control" type="text" name="acc" id="" value="<?=$_SESSION['user']?>"
+                            disabled readonly>
                     </div>
                     <div class="container row w-50 m-auto input-group my-2">
                         <label class="col-3 input-group-text" for="pwd">密碼</label>
-                        <input class="col-3 form-control" type="password" name="pwd" id="" value="<?=$_SESSION['pwd']?>">
+                        <input class="col-3 form-control" type="password" name="pwd" id=""
+                            value="<?=$_SESSION['pwd']?>">
                     </div>
                     <div class="container row w-50 m-auto input-group my-2">
                         <label class="col-3 input-group-text" for="name">姓名</label>
@@ -52,11 +59,12 @@ if(isset($_SESSION['user'])){
                         <input class="col-5 mx-3 btn btn-primary" type="submit" value="更新會員資料">
                     </div>
                 </form>
-                <a class="col-5 mx-3 m-3 text-center" href="./delete.php"><button class="btn btn-light text-secondary">刪除會員資料</button></a>
+                <a class="col-5 mx-3 m-3 text-center" href="./delete.php"><button
+                        class="btn btn-light text-secondary">刪除會員資料</button></a>
             </div>
         </div>
     </div>
-<?php
+    <?php
 }
 else{
 header("location:index.php");

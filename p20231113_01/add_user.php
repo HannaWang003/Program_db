@@ -1,7 +1,7 @@
 <?php
 // $dsn="mysql:host=localhost;charset=utf8;dbname=member";
 // $pdo=new PDO($dsn,'root','');
-include("./pdo.php");
+include_once("./inc/pdo.php");
 $acc=htmlspecialchars(trim($_POST['acc']));
 // TRIM() 移除前後空白字元
 // htmlspecialchars() 函数把预定义的字符转换为 HTML 实体。
