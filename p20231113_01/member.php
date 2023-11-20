@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include("./inc/pdo.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,12 +37,15 @@ if(isset($_SESSION['user'])){
         <div class="row">
             <h2 class="text-center col-12">會員中心</h2>
             <?php
+
 if(isset($_SESSION['msg'])){
     echo "<div class='alert alert-warning text-center col-12 m-auto'>";
     echo $_SESSION['msg'];
     unset($_SESSION['msg']);
     echo "</div>";
 }
+$sql="select * from users where `id`='{$_SESSION['id']}'";
+$user=$pdo->query($sql)->fetch();
 
 ?>
 
@@ -55,15 +59,15 @@ if(isset($_SESSION['msg'])){
                     <div class="container row w-50 m-auto input-group my-2">
                         <label class="col-3 input-group-text" for="pwd">密碼</label>
                         <input class="col-3 form-control" type="password" name="pwd" id=""
-                            value="<?=$_SESSION['pwd']?>">
+                            value="<?=$user['pwd']?>">
                     </div>
                     <div class="container row w-50 m-auto input-group my-2">
                         <label class="col-3 input-group-text" for="name">姓名</label>
-                        <input class="col-3 form-control" type="text" name="name" id="" value="<?=$_SESSION['name']?>">
+                        <input class="col-3 form-control" type="text" name="name" id="" value="<?=$user['name']?>">
                     </div>
                     <div class="container row w-50 m-auto input-group my-2">
                         <label class="col-3 input-group-text" for="tel">電話</label>
-                        <input class="col-3 form-control" type="text" name="tel" id="" value="<?=$_SESSION['tel']?>">
+                        <input class="col-3 form-control" type="text" name="tel" id="" value="<?=$user['tel']?>">
                     </div>
                     <div class="container row m-auto justify-content-center">
                         <input class="col-5 mx-3 btn btn-primary" type="submit" value="更新會員資料">
@@ -73,7 +77,7 @@ if(isset($_SESSION['msg'])){
                 <a class="col-5 mx-3 m-3 text-center"><button class="btn btn-light text-secondary"
                         onclick="location.href='delete.php'">刪除會員資料</button></a>
             </div>
-        </div>
+        </div> 
     </div>
     <?php
 }
