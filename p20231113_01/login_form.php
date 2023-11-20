@@ -22,7 +22,7 @@ if(isset($_GET['error'])){
     <div class="d-flex align-items-center vh-100 vw-100">
         <div class="container w-50 border border-2 border-info rounded-5 p-5">
             <h3 class=" container row text-center">會員登入</h3>
-            <form class="container row " action="./login.php" method="post">
+            <form class="container row " action="./api/login.php" method="post">
                 <div class="row w-50 m-auto input-group my-2">
                     <label class="col-3 input-group-text" for="acc">帳號</label>
                     <input class="col-3 form-control" type="text" name="acc" id="">

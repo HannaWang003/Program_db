@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("./inc/pdo.php");
+include_once("../inc/pdo.php");
 
 $acc=$_POST['acc'];
 $pwd=$_POST['pwd'];
@@ -23,10 +23,10 @@ $userNumber=$pdo->query($sql)->fetchcolumn();
     $_SESSION['pwd']=$user['pwd'];
     $_SESSION['name']=$user['name'];
     $_SESSION['tel']=$user['tel'];
-    header("location:index.php");
+    header("location:../index.php");
 }
 else{
-    header("location:login_form.php?error=輸入錯誤");
+    header("location:../login_form.php?error=輸入錯誤");
 }
 
 
