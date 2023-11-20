@@ -46,7 +46,7 @@ if(isset($_SESSION['msg'])){
 ?>
 
             <div class="col-12 row justify-content-center w-50 m-auto">
-                <form action="member_update.php" method="post">
+                <form action="./api/member_update.php" method="post">
                     <div class="container row w-50 m-auto input-group my-2">
                         <label class="col-3 input-group-text" for="acc">帳號</label>
                         <input class="col-3 form-control" type="text" name="acc" id="" value="<?=$_SESSION['user']?>"
@@ -71,7 +71,7 @@ if(isset($_SESSION['msg'])){
                     </div>
                 </form>
                 <a class="col-5 mx-3 m-3 text-center"><button class="btn btn-light text-secondary"
-                        onclick="location.href='delete.php'">刪除會員資料</button></a>
+                        onclick="location.href='./api/delete.php'">刪除會員資料</button></a>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("./inc/pdo.php");
+include_once("../inc/pdo.php");
 if(isset($_POST['pwd'])){
     $_SESSION['pwd']=$_POST['pwd'];
 }
@@ -19,5 +19,5 @@ else{
     $_SESSION['msg']="資料無異動";
 };
 // exit();
-header("location:./member.php");
+header("location:../member.php");
 ?>
