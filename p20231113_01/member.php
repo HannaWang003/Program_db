@@ -102,9 +102,9 @@ $user=$pdo->query($sql)->fetch();
         }
 
 
-        /* $sql="select * from users where `acc`='{$_SESSION['user']}'";
-        $user=$pdo->query($sql)->fetch(); */
-        $user=find('users',['acc'=>"{$_SESSION['user']}"]);
+        $sql="select * from users where `acc`='{$_SESSION['user']}'";
+        $user=$pdo->query($sql)->fetch(); 
+        // $user=find('users',['acc'=>"{$_SESSION['user']}"]);
     ?>
     <form action="./api/update.php" method="post" class="col-4 m-auto">
         <div class="input-group my-1">
