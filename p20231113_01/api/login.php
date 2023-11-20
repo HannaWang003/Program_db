@@ -1,35 +1,26 @@
-<?php
-session_start();
-include_once("./inc/pdo.php");
+<?php  
+include_once "../include/connect.php";
 
 $acc=$_POST['acc'];
-$pwd=$_POST['pwd'];
+$pw=$_POST['pw'];
 
 
-$sql="select count(*),`id`,`acc`,`pwd`,`name`,`tel` from users where `acc`='$acc' && `pwd`='$pwd'";
-$user=$pdo->query($sql)->fetch();
-$userNumber=$pdo->query($sql)->fetchcolumn();
-// fetchcolumn() 傳回資料列中的第一個資料行
-    // 檢查用
-    // echo "<pre>";
-    // echo print_r($user);
-    // echo "</pre>";
-    // exit();
-    // 檢查用end
-// if($user['acc']==$acc && $user['pwd']==$pwd){
-    if($userNumber==1){
-    $_SESSION['id']=$user['id'];
-    $_SESSION['user']=$user['acc'];
-    $_SESSION['pwd']=$user['pwd'];
-    $_SESSION['name']=$user['name'];
-    $_SESSION['tel']=$user['tel'];
-    header("location:index.php");
+//$sql="select * from users where `acc`='$acc' && `pw`='$pw'";
+//$sql="select count(*) from users where `acc`='$acc' && `pw`='$pw'";
+
+//$user=$pdo->query($sql)->fetch();
+//$user=$pdo->query($sql)->fetchColumn();
+//print_r($user);
+
+$res=total('users',['acc'=>$acc,'pw'=>$pw]);
+
+//if($user['acc']==$acc && $user['pw']==$pw){
+if($res){
+    $_SESSION['user']=$acc;
+    header("location:../index.php");
+}else{
+    header('location:../login_form.php?error=帳號密碼錯誤');
 }
-else{
-    header("location:login_form.php?error=輸入錯誤");
-}
-
-
 
 
 ?>

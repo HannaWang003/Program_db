@@ -1,18 +1,18 @@
 <?php
-// $dsn="mysql:host=localhost;charset=utf8;dbname=member";
-// $pdo=new PDO($dsn,'root','');
-include_once("./inc/pdo.php");
+include_once "../include/connect.php";
+
 $acc=htmlspecialchars(trim($_POST['acc']));
-// TRIM() 移除前後空白字元
-// htmlspecialchars() 函数把预定义的字符转换为 HTML 实体。
-// 预定义的字符是：
-// & （和号）成为 &
-// " （双引号）成为 "
-// ' （单引号）成为 '
-// < （小于）成为 <
-// > （大于）成为 >
-$sql="insert into `users` (`acc`,`pwd`,`name`,`tel`) values ('{$acc}','{$_POST['pwd']}','{$_POST['name']}','{$_POST['tel']}')";
-echo "影響{$pdo->exec($sql)}筆資料";
-// exit();
-header("location:login_form.php");
-?>
+
+/* $sql="insert into `users`(`acc`,`pw`,`name`,`email`,`address`) 
+                   values('{$acc}','{$_POST['pw']}','{$_POST['name']}','{$_POST['email']}','{$_POST['address']}')";
+
+$pdo->exec($sql); */
+
+insert("users",['acc'=>"{$acc}",
+                 'pw'=>"{$_POST['pw']}",
+                 'name'=>"{$_POST['name']}",
+                 'email'=>"{$_POST['email']}",
+                 'address'=>"{$_POST['address']}"]);
+
+
+header("Location:../index.php");
