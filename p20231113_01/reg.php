@@ -18,7 +18,7 @@
         <div class="row">
             <h2 class="text-center col-12">會員註冊</h2>
             <div class="col-12 row">
-                <form action="add_user.php" method="post">
+                <form action="./api/add_user.php" method="post">
                     <div class="container row w-25 m-auto input-group my-2">
                         <label class="col-3 input-group-text" for="acc">帳號</label>
                         <input class="col-3 form-control" type="text" name="acc" id="">

@@ -1,7 +1,7 @@
 <?php
 // $dsn="mysql:host=localhost;charset=utf8;dbname=member";
 // $pdo=new PDO($dsn,'root','');
-include_once("./inc/pdo.php");
+include_once("../inc/pdo.php");
 $acc=htmlspecialchars(trim($_POST['acc']));
 // TRIM() 移除前後空白字元
 // htmlspecialchars() 函数把预定义的字符转换为 HTML 实体。
@@ -14,5 +14,5 @@ $acc=htmlspecialchars(trim($_POST['acc']));
 $sql="insert into `users` (`acc`,`pwd`,`name`,`tel`) values ('{$acc}','{$_POST['pwd']}','{$_POST['name']}','{$_POST['tel']}')";
 echo "影響{$pdo->exec($sql)}筆資料";
 // exit();
-header("location:login_form.php");
+header("location:../login_form.php");
 ?>
