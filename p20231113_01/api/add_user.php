@@ -12,6 +12,7 @@ $acc=htmlspecialchars(trim($_POST['acc']));
 // < （小于）成为 <
 // > （大于）成为 >
 $sql="insert into `users` (`acc`,`pwd`,`name`,`tel`) values ('{$acc}','{$_POST['pwd']}','{$_POST['name']}','{$_POST['tel']}')";
+insert('users',[]);
 echo "影響{$pdo->exec($sql)}筆資料";
 // exit();
 header("location:../login_form.php");
