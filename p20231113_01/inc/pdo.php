@@ -1,6 +1,9 @@
 <?php
-$d="mysql:host=localhost;charset=utf8;dbname=member";
-$pdo=new PDO($d,'root','');
+date_default_timezone_set("Asia/Taipei");
+date_default_timezone_set("Asia/Taipei");
+session_start();
+$dsn="mysql:host=localhost;charset=utf8;dbname=member";
+$pdo=new PDO($dsn,'root','');
 ?>
 <?php
 
