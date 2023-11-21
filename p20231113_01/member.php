@@ -70,7 +70,7 @@ $user=find('users',['acc'=>"{$_SESSION['user']}"]);
                         <label class="col-3 input-group-text" for="tel">電話</label>
                         <input class="col-3 form-control" type="text" name="tel" id="" value="<?=$user['tel']?>">
                     </div>
-                    <input type="hidden" name="id" values="<?=$user['id']?>">
+                    <input type="hidden" name="id" value="<?=$user['id']?>">
                     <div class="container row m-auto justify-content-center">
                         <input class="col-5 mx-3 btn btn-primary" type="submit" value="更新會員資料">
                         <input class="col-5 mx-1 btn btn-light" type="reset" value="還原">

@@ -90,16 +90,13 @@ function update($table,$id,$cols){
     // $dns="mysql:host=localhost;charset=utf8;dbname=school";
     // $pdo=new PDO($dns,'root','');
     global $pdo;
-    echo $sql="update `$table` set ";
+    $sql="update `$table` set ";
 // 處理cols
     if(!empty($cols)){
     foreach($cols as $col => $val){
         $tmp[]="`$col`='$val'";
     }
-}
-else{
-    echo "錯誤:缺少要編輯的欄位陣列";
-}
+
 $sql .= join(",",$tmp);
 // 清楚上面已儲存的陣列內容，重新宣告為「空陣列」
 $tmp=[];
@@ -110,11 +107,16 @@ if(is_array($id)){
         $tmp[]="`$col`='$val'";
     }
 $sql .=" where " .join(" && ",$tmp);
-}else if(is_numeric($id)){
+}
+else if(is_numeric($id)){
     $sql .=" where `id`='$id'";
 }
 else{
     echo "錯誤:參數錯誤!";
+}
+}
+else{
+    echo "錯誤:缺少要編輯的欄位陣列";
 }
 return $pdo->exec($sql);
 }
