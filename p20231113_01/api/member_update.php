@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once("../inc/pdo.php");
 if(isset($_POST['pwd'])){
     $_SESSION['pwd']=$_POST['pwd'];

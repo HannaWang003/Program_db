@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once("../inc/pdo.php");
 
 $acc=$_POST['acc'];
